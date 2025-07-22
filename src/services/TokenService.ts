@@ -17,7 +17,7 @@ const verifyToken = async (token: string): Promise<{ success: boolean; email?: s
       }
 
       return { success: false };
-    } catch (_) {
+    } catch {
       return { success: false };
     }
 };

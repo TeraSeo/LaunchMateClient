@@ -27,7 +27,7 @@ const validateUser = async (form: ValidateUserForm): Promise<ValidateUserResult>
       } else {
         return { success: false };
       }
-    } catch (_) {
+    } catch {
       return { success: false };
     }
 };
@@ -51,7 +51,7 @@ const verifyOtp = async (form: VerifyOtpForm): Promise<VerifyOtpResult> => {
       } else {
         return { success: false };
       }
-    } catch (_) {
+    } catch {
       return { success: false };
     }
 };
@@ -69,7 +69,7 @@ const getUserStat = async (token: string): Promise<UserStatResult> => {
     } else {
       return { success: false };
     }
-  } catch (_) {
+  } catch {
     return { success: false };
   }
 };
