@@ -9,10 +9,11 @@ import DetailedIdeaHeaderCard from "@/components/launch/cards/DetailedIdeaHeader
 import DetailedIdeaMainSectionCard from "@/components/launch/cards/DetailedIdeaMainSectionCard";
 import { NextPage } from "next";
 import { getIdeaDetail } from "@/services/LaunchService";
+import { DetailedIdea } from "@/constants/Form";
 
 const IdeaDetailPage: NextPage = () => {
   const { id } = useParams() as { id: string };
-  const [detailed, setDetailed] = useState<any>(null);
+  const [detailed, setDetailed] = useState<DetailedIdea | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -21,7 +22,7 @@ const IdeaDetailPage: NextPage = () => {
         setLoading(true);
         const response = await getIdeaDetail(parseInt(id));
         if (response.success) {
-            setDetailed(response.detailed);
+            setDetailed(response.detailed!);
             setError(null);
         } else {
             setError("Failed to create start up idea.");

@@ -11,10 +11,11 @@ import DetailedIdeaMainSectionCard from "@/components/launch/cards/DetailedIdeaM
 import LaunchIdeaFinishButton from "@/components/launch/buttons/LaunchIdeaFinishButton";
 import { NextPage } from "next";
 import { createDetailedIdea } from "@/services/LaunchService";
+import { DetailedIdea } from "@/constants/Form";
 
 const LaunchSpecificPage: NextPage = () => {
   const { id } = useParams() as { id: string };
-  const [detailed, setDetailed] = useState<any>(null);
+  const [detailed, setDetailed] = useState<DetailedIdea | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
@@ -41,7 +42,7 @@ const LaunchSpecificPage: NextPage = () => {
 
   const handleFinish = async () => {
     sessionStorage.removeItem('confirmedIdeaText');
-    const response = await createDetailedIdea({id: parseInt(id), detailed: detailed});
+    const response = await createDetailedIdea({id: parseInt(id), detailed: detailed!});
     if (response.success) {
       router.push('/dashboard');
     }

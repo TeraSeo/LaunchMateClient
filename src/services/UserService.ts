@@ -5,17 +5,14 @@ const createUser = async (form: CreateUserForm): Promise<CreateUserResult> => {
   try {
     await axios.post('http://localhost:8080/api/users/create', form);
     return { success: true };
-  } catch (error: any) {
-    if (error.response) {
-      if (error.response.status === 409) {
+  } catch (error: unknown) {
+    if (axios.isAxiosError(error)) {
+      if (error.response?.status === 409) {
         // Email duplicated error
         return { success: false, reason: 'duplicate' };
       }
-
-      // Other errors
       return { success: false, reason: 'server' };
     } else {
-      // Server not responding error
       return { success: false, reason: 'network' };
     }
   }
@@ -54,7 +51,7 @@ const verifyOtp = async (form: VerifyOtpForm): Promise<VerifyOtpResult> => {
       } else {
         return { success: false };
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       return { success: false };
     }
 };
@@ -72,7 +69,7 @@ const getUserStat = async (token: string): Promise<UserStatResult> => {
     } else {
       return { success: false };
     }
-  } catch (error: any) {
+  } catch (error: unknown) {
     return { success: false };
   }
 };

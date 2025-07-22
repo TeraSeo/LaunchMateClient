@@ -10,9 +10,10 @@ import { getTokenCookie } from '@/services/TokenService';
 import { getUserStat } from '@/services/UserService';
 import { getSpecificSummarizedIdea } from '@/services/LaunchService';
 import DashboardLoadingBox from '@/components/dashboard/DashboardLoadingBox';
+import { UserStat } from '@/constants/Form';
 
 export default function DashboardPage() {
-  const [userStat, setUserStat] = useState<any>(null);
+  const [userStat, setUserStat] = useState<UserStat | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [ideas, setIdeas] = useState<
     {

@@ -1,3 +1,4 @@
+import React from "react";
 import { Colors } from "@/constants/Color";
 import { fontSize } from "@/constants/FontSize";
 import size from "@/constants/Size";
@@ -7,7 +8,7 @@ interface RegisterButtonProps {
   loading?: boolean;
 }
 
-const RegisterButton: React.FC<RegisterButtonProps> = ({ loading }) => {
+const RegisterButton: React.FC<RegisterButtonProps> = ({ loading = false }) => {
   return (
     <LoadingButton
       type="submit"

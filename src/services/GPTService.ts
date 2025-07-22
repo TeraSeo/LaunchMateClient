@@ -1,17 +1,18 @@
-import { StartupIdeaResult, StartupIdeaErrorReason } from '@/constants/Form';
+import { StartupIdeaResult, StartupIdeaErrorReason, StartupIdeaRaw } from '@/constants/Form';
 import axios from 'axios';
 
 export const fetchGeneratedIdeaWithAnswers = async (
     answers: string[], previousDescriptions: string[]
   ): Promise<{ success: true; idea: StartupIdeaResult } | { success: false; reason: StartupIdeaErrorReason }> => {
     try {
-      const response = await axios.post<{ idea: any }>(
+      const response = await axios.post<{ idea: StartupIdeaRaw }>(
         'http://localhost:8080/api/launch/generate-idea-with-answers',
         { answers, previousDescriptions }
       );
   
       const raw = response.data.idea;
-  
+      
+      const swotKeys = ['Strengths', 'Weaknesses', 'Opportunities', 'Threats'] as const;
       const normalizedIdea: StartupIdeaResult = {
         startupTitle: raw['Startup Title'] || '',
         description: raw['Description'] || '',
@@ -20,21 +21,20 @@ export const fetchGeneratedIdeaWithAnswers = async (
         competitorAnalysis: raw['Competitor Analysis'] || '',
         revenueModel: raw['Revenue Model'] || '',
         swotSnapshot:
-          ['Strengths', 'Weaknesses', 'Opportunities', 'Threats']
-            .map((k) => `${k}: ${raw[k] || ''}`)
-            .join('\n'),
+          swotKeys
+          .map((k) => `${k}: ${raw[k as keyof StartupIdeaRaw] || ''}`)
+          .join('\n'),
       };
   
       return { success: true, idea: normalizedIdea };
-    } catch (error: any) {
-      if (error.response) {
-        if (error.response.status === 400) {
+    } catch (error: unknown) {
+      if (axios.isAxiosError(error)) {
+        if (error.response?.status === 400) {
           return { success: false, reason: 'validation' };
         }
         return { success: false, reason: 'server' };
-      } else {
-        return { success: false, reason: 'network' };
       }
+      return { success: false, reason: 'network' };
     }
 };
 
@@ -42,13 +42,14 @@ export const fetchGeneratedIdeaWitIdeaNAnswers = async (
   answers: string[], baseIdea: string
 ): Promise<{ success: true; idea: StartupIdeaResult } | { success: false; reason: StartupIdeaErrorReason }> => {
   try {
-    const response = await axios.post<{ idea: any }>(
+    const response = await axios.post<{ idea: StartupIdeaRaw }>(
       'http://localhost:8080/api/launch/generate-idea-with-answers-n-base-idea',
       { answers, baseIdea }
     );
 
     const raw = response.data.idea;
 
+    const swotKeys = ['Strengths', 'Weaknesses', 'Opportunities', 'Threats'] as const;
     const normalizedIdea: StartupIdeaResult = {
       startupTitle: raw['Startup Title'] || '',
       description: raw['Description'] || '',
@@ -57,21 +58,20 @@ export const fetchGeneratedIdeaWitIdeaNAnswers = async (
       competitorAnalysis: raw['Competitor Analysis'] || '',
       revenueModel: raw['Revenue Model'] || '',
       swotSnapshot:
-        ['Strengths', 'Weaknesses', 'Opportunities', 'Threats']
-          .map((k) => `${k}: ${raw[k] || ''}`)
-          .join('\n'),
+        swotKeys
+        .map((k) => `${k}: ${raw[k as keyof StartupIdeaRaw] || ''}`)
+        .join('\n'),
     };
 
     return { success: true, idea: normalizedIdea };
-  } catch (error: any) {
-    if (error.response) {
-      if (error.response.status === 400) {
+  } catch (error: unknown) {
+    if (axios.isAxiosError(error)) {
+      if (error.response?.status === 400) {
         return { success: false, reason: 'validation' };
       }
       return { success: false, reason: 'server' };
-    } else {
-      return { success: false, reason: 'network' };
     }
+    return { success: false, reason: 'network' };
   }
 };
 
@@ -79,13 +79,14 @@ export const fetchGeneratedDetailedIdea = async (
   idea: string
 ): Promise<{ success: true; idea: StartupIdeaResult } | { success: false; reason: StartupIdeaErrorReason }> => {
   try {
-    const response = await axios.post<{ detailedIdea: any }>(
+    const response = await axios.post<{ detailedIdea: StartupIdeaRaw }>(
       'http://localhost:8080/api/launch/generate-detailed-idea',
       { idea }
     );
 
     const raw = response.data.detailedIdea;
 
+    const swotKeys = ['Strengths', 'Weaknesses', 'Opportunities', 'Threats'] as const;
     const normalizedIdea: StartupIdeaResult = {
       startupTitle: raw['Startup Title'] || '',
       description: raw['Description'] || '',
@@ -94,20 +95,19 @@ export const fetchGeneratedDetailedIdea = async (
       competitorAnalysis: raw['Competitor Analysis'] || '',
       revenueModel: raw['Revenue Model'] || '',
       swotSnapshot:
-        ['Strengths', 'Weaknesses', 'Opportunities', 'Threats']
-          .map((k) => `${k}: ${raw[k] || ''}`)
-          .join('\n'),
+        swotKeys
+        .map((k) => `${k}: ${raw[k as keyof StartupIdeaRaw] || ''}`)
+        .join('\n'),
     };
 
     return { success: true, idea: normalizedIdea };
-  } catch (error: any) {
-    if (error.response) {
-      if (error.response.status === 400) {
+  } catch (error: unknown) {
+    if (axios.isAxiosError(error)) {
+      if (error.response?.status === 400) {
         return { success: false, reason: 'validation' };
       }
       return { success: false, reason: 'server' };
-    } else {
-      return { success: false, reason: 'network' };
     }
+    return { success: false, reason: 'network' };
   }
 };

@@ -80,15 +80,7 @@ export type CreateIdeaResult =
 
 export type CreateDetailedIdeaForm = {
     id: number,
-    detailed: {
-      startupTitle: string;
-      description: string;
-      planSummary: string;
-      marketAnalysis: string;
-      competitorAnalysis: string;
-      revenueModel: string;
-      swotSnapshot: string;
-    }
+    detailed: DetailedIdea
 };
 
 export type UserStatResult = {
@@ -126,14 +118,37 @@ export type DeletedIdeaResult = {
 
 export type GetIdaeDetailResult = {
     success: boolean;
-    detailed?: {
-        startupTitle: string;
-        description: string;
-        businessPlanSummary: string;
-        marketAnalysis: string;
-        competitorAnalysis: string;
-        revenueModel: string;
-        swotSnapshot: string;
-    },
+    detailed?: DetailedIdea,
     reason?: 'server' | 'network';
+}
+
+export type UserStat = {
+    username: string;
+    totalIdea: number;
+    activeProjectCnt: number;
+    downloadCnt: number;
+    ideaIds: number[];
+};
+
+export type DetailedIdea = {
+    startupTitle: string;
+    description: string;
+    businessPlanSummary: string;
+    marketAnalysis: string;
+    competitorAnalysis: string;
+    revenueModel: string;
+    swotSnapshot: string;
+};
+
+export interface StartupIdeaRaw {
+    'Startup Title': string;
+    'Description': string;
+    'Business Plan Summary': string;
+    'Market Analysis': string;
+    'Competitor Analysis': string;
+    'Revenue Model': string;
+    'Strengths': string;
+    'Weaknesses': string;
+    'Opportunities': string;
+    'Threats': string;
 }
