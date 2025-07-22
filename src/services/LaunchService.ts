@@ -16,8 +16,8 @@ export const getSpecificSummarizedIdea = async (
       success: true,
       summarizedIdea: response.data.summarizedIdea,
     };
-  } catch (error: any) {
-    if (error.response) {
+  } catch (error: unknown) {
+    if (axios.isAxiosError(error) && error.response) {
       if (error.response.status === 409) {
         return { success: false, reason: 'duplicate' };
       }
@@ -43,8 +43,8 @@ export const getIdeaAnswers = async (
       success: true,
       ideaAnswers: response.data.ideaAnswers,
     };
-  } catch (error: any) {
-    if (error.response) {
+  } catch (error: unknown) {
+    if (axios.isAxiosError(error) && error.response) {
       if (error.response.status === 409) {
         return { success: false, reason: 'duplicate' };
       }
@@ -81,8 +81,8 @@ export const getIdeaDetail = async (
       success: true,
       detailed: detailedIdea,
     };
-  } catch (error: any) {
-    if (error.response) {
+  } catch (error: unknown) {
+    if (axios.isAxiosError(error) && error.response) {
       return { success: false, reason: 'server' };
     } else {
       return { success: false, reason: 'network' };
@@ -96,8 +96,8 @@ export const createIdea = async (
   try {
     const response = await axios.post('http://localhost:8080/api/launch/create/idea', form);
     return { success: true, ideaId: response.data.ideaId };
-  } catch (error: any) {
-    if (error.response) {
+  } catch (error: unknown) {
+    if (axios.isAxiosError(error) && error.response) {
       if (error.response.status === 409) {
         return { success: false, reason: 'duplicate' };
       }
@@ -115,8 +115,8 @@ export const createDetailedIdea = async (
       const response = await axios.post('http://localhost:8080/api/launch/create/detailed/idea', form);
   
       return { success: response.data.isCreated };
-    } catch (error: any) {
-      if (error.response) {
+    } catch (error: unknown) {
+      if (axios.isAxiosError(error) && error.response) {
         return { success: false, reason: 'server' };
       } else {
         return { success: false, reason: 'network' };
@@ -138,8 +138,8 @@ export const deleteSpecificIdea = async (
       return {
         success: response.data.isDeleted
       };
-    } catch (error: any) {
-      if (error.response) {
+    } catch (error: unknown) {
+      if (axios.isAxiosError(error) && error.response) {
         if (error.response.status === 409) {
           return { success: false, reason: 'duplicate' };
         }

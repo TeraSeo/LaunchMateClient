@@ -1,7 +1,6 @@
 import { features } from "@/constants/HomeData";
-import { Box, Container, Typography, Grid } from "@mui/material";
+import { Box, Container, Grid } from "@mui/material";
 import FeatureCard from "../cards/FeatureCard";
-import { fontSize } from "@/constants/FontSize";
 import FeatureTitleText from "../texts/FeatureTitleText";
 
 const FeatureSection: React.FC = () => {

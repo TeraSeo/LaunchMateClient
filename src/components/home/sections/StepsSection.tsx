@@ -1,7 +1,6 @@
 import { steps } from "@/constants/HomeData";
-import { Box, Container, Typography, Grid } from "@mui/material";
+import { Box, Container, Grid } from "@mui/material";
 import Step from "../Step";
-import { fontSize } from '@/constants/FontSize';
 import StepsSectionTitleText from "../texts/StepsSectionTitleText";
 
 const StepsSection :React.FC = () => {

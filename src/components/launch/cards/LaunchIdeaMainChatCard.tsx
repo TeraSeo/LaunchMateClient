@@ -87,7 +87,7 @@ const LaunchIdeaMainChatCard: React.FC<LaunchIdeaMainChatCardProps> = ({ answers
                       },
                   ]);
               }
-          } catch (error) {
+          } catch (_) {
               setMessages((prev) => [
                   ...prev,
                   {

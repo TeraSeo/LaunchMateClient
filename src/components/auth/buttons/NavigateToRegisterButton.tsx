@@ -11,7 +11,7 @@ const NavigateToRegisterButton: React.FC = () => {
     return (
         <Stack direction="row" justifyContent="center" alignItems="center" mt={{ xs: 3, sm: 4 }}>
             <Typography sx={{ color: Colors.TEXT_SECONDARY, fontSize: fontSize.login.bottomText, mr: 1 }}>
-              Don't have an account?
+              Don&apos;t have an account?
             </Typography>
             <Button
               onClick={() => router.push('/register')}

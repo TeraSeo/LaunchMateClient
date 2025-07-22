@@ -10,11 +10,12 @@ interface DetailedIdeaSwotsTextProps {
 }
 
 const swotIcons = [
-    <BoltIcon sx={{ color: Colors.SECONDARY }} />,
-    <WarningAmberIcon sx={{ color: Colors.ACCENT_DARK }} />,
-    <EmojiObjectsIcon sx={{ color: Colors.PRIMARY }} />,
-    <ReportProblemIcon sx={{ color: Colors.ERROR }} />,
+    (key: string | number) => <BoltIcon key={key} sx={{ color: Colors.SECONDARY }} />,
+    (key: string | number) => <WarningAmberIcon key={key} sx={{ color: Colors.ACCENT_DARK }} />,
+    (key: string | number) => <EmojiObjectsIcon key={key} sx={{ color: Colors.PRIMARY }} />,
+    (key: string | number) => <ReportProblemIcon key={key} sx={{ color: Colors.ERROR }} />,
 ];
+
 
 const swotLabels = ["Strengths", "Weaknesses", "Opportunities", "Threats"];
 
@@ -41,7 +42,7 @@ const DetailedIdeaSwotsText: React.FC<DetailedIdeaSwotsTextProps> = ({ swotSnaps
                     minHeight: 80,
                     }}
                 >
-                    <Box sx={{ mt: 0.5 }}>{swotIcons[idx]}</Box>
+                    <Box sx={{ mt: 0.5 }}>{swotIcons[idx](label)}</Box>
                     <Box>
                     <Typography sx={{ color: Colors.SECONDARY, fontWeight: 700, fontSize: '1.05rem', mb: 0.5 }}>
                         {label}

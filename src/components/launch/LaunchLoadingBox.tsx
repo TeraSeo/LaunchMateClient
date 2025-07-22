@@ -211,7 +211,7 @@ const LaunchLoadingBox: React.FC = () => {
                   }}
                 >
                   💡 Did you know? The best startups solve problems that founders personally experienced. 
-                  We're making sure your idea has that authentic touch!
+                  We&apos;re making sure your idea has that authentic touch!
                 </Typography>
               </Box>
             </Box>

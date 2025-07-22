@@ -21,7 +21,7 @@ const RenewOtpButton: React.FC<RenewOtpButtonProps> = ({
     <Stack direction="column" alignItems="center" spacing={1} mt={{ xs: 2, sm: 3 }}>
       <Stack direction="row" justifyContent="center" alignItems="center">
         <Typography sx={{ color: Colors.TEXT_SECONDARY, fontSize: fontSize.login.bottomText, mr: 1 }}>
-          Didn't receive a code?
+          Didn&apos;t receive a code?
         </Typography>
         <Button
           onClick={onClick}

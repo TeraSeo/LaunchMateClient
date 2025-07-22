@@ -33,7 +33,7 @@ const IdeaDeleteButton: React.FC<IdeaDeleteButtonProps> = ({ ideaId }) => {
                     window.location.reload();
                 }, 800);
             }
-        } catch (error) {
+        } catch (_) {
             setIsDeleting(false);
         }
     };

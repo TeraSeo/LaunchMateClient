@@ -13,7 +13,7 @@ const AboutSubTitleText: React.FC = () => {
             }}
         >
             LaunchMate uses AI to automatically generate comprehensive startup business plans 
-            from just your idea keywords. From market analysis to pitch decks, we've got you covered.
+            from just your idea keywords. From market analysis to pitch decks, we&apos;ve got you covered.
         </Typography>
     );
 }

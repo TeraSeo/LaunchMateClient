@@ -1,7 +1,6 @@
 import { pricingPlans } from "@/constants/HomeData";
-import { Box, Container, Typography, Grid } from "@mui/material";
+import { Box, Container, Grid } from "@mui/material";
 import PricingCard from "../cards/PricingCard";
-import { fontSize } from '@/constants/FontSize';
 import PricingTitleText from "../texts/PricingTitleText";
 
 const PricingSection: React.FC = () => {
