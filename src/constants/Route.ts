@@ -1,1 +1,1 @@
-export const serverRoute = 'http://100.24.163.4:8080';
+export const serverRoute = 'https://server-launch-mate.whos-the-goat.com';
