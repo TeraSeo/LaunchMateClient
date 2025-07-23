@@ -1,8 +1,9 @@
+import { serverRoute } from '@/constants/Route';
 import axios from 'axios';
 
 const verifyToken = async (token: string): Promise<{ success: boolean; email?: string; verified?: boolean }> => {
     try {
-      const response = await axios.get('http://localhost:8080/api/tokens/verify', {
+      const response = await axios.get(`${serverRoute}/api/tokens/verify`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

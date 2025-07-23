@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
+import { serverRoute } from './constants/Route';
 
 export async function middleware(request: NextRequest) {
   const token = request.cookies.get('token')?.value;
@@ -9,7 +10,7 @@ export async function middleware(request: NextRequest) {
   }
 
   try {
-    const res = await fetch('http://localhost:8080/api/tokens/verify', {
+    const res = await fetch(`${serverRoute}/api/tokens/verify`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

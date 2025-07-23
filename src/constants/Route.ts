@@ -1,0 +1,1 @@
+export const serverRoute = 'http://100.24.163.4:8080';

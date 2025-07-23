@@ -1,9 +1,10 @@
 import { CreateUserForm, CreateUserResult, UserStatResult, ValidateUserForm, ValidateUserResult, VerifyOtpForm, VerifyOtpResult } from '@/constants/Form';
+import { serverRoute } from '@/constants/Route';
 import axios from 'axios';
 
 const createUser = async (form: CreateUserForm): Promise<CreateUserResult> => {
   try {
-    await axios.post('http://localhost:8080/api/users/create', form);
+    await axios.post(`${serverRoute}/api/users/create`, form);
     return { success: true };
   } catch (error: unknown) {
     if (axios.isAxiosError(error)) {
@@ -20,7 +21,7 @@ const createUser = async (form: CreateUserForm): Promise<CreateUserResult> => {
 
 const validateUser = async (form: ValidateUserForm): Promise<ValidateUserResult> => {
     try {
-      const response = await axios.post('http://localhost:8080/api/users/validate', form);
+      const response = await axios.post(`${serverRoute}/api/users/validate`, form);
 
       if (response.data.success === true) {
         return { success: true, token: response.data.token };
@@ -34,7 +35,7 @@ const validateUser = async (form: ValidateUserForm): Promise<ValidateUserResult>
 
 const renewOtp = async (email: string) => {
     try {
-      await axios.post('http://localhost:8080/api/users/renew/otp', { email });
+      await axios.post(`${serverRoute}/api/users/renew/otp`, { email });
       return { success: true };
     } catch (error) {
       console.error('Failed to renew OTP:', error);
@@ -44,7 +45,7 @@ const renewOtp = async (email: string) => {
 
 const verifyOtp = async (form: VerifyOtpForm): Promise<VerifyOtpResult> => {
     try {
-      const response = await axios.post('http://localhost:8080/api/users/verify/otp', form);
+      const response = await axios.post(`${serverRoute}/api/users/verify/otp`, form);
 
       if (response.data.success === true) {
         return { success: true, token: response.data.token };
@@ -58,7 +59,7 @@ const verifyOtp = async (form: VerifyOtpForm): Promise<VerifyOtpResult> => {
 
 const getUserStat = async (token: string): Promise<UserStatResult> => {
   try {
-    const response = await axios.get('http://localhost:8080/api/users/get/stats', {
+    const response = await axios.get(`${serverRoute}/api/users/get/stats`, {
       headers: {
         Authorization: `Bearer ${token}`
       },

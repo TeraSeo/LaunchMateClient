@@ -1,4 +1,5 @@
 import { CreateDetailedIdeaForm, CreateIdeaForm, CreateIdeaResult, DeletedIdeaResult, GetIdaeDetailResult, IdeaAnswersResult, SummarizedIdeaResult } from '@/constants/Form';
+import { serverRoute } from '@/constants/Route';
 import axios from 'axios';
 
 export const getSpecificSummarizedIdea = async (
@@ -6,7 +7,7 @@ export const getSpecificSummarizedIdea = async (
 ): Promise<SummarizedIdeaResult> => {
   try {
     const response = await axios.get(
-      `http://localhost:8080/api/launch/get/specific/summarized/idea`,
+      `${serverRoute}/api/launch/get/specific/summarized/idea`,
       {
         params: { ideaId },
       }
@@ -33,7 +34,7 @@ export const getIdeaAnswers = async (
 ): Promise<IdeaAnswersResult> => {
   try {
     const response = await axios.get(
-      `http://localhost:8080/api/launch/get/specific/idea/answers`,
+      `${serverRoute}/api/launch/get/specific/idea/answers`,
       {
         params: { ideaId },
       }
@@ -60,7 +61,7 @@ export const getIdeaDetail = async (
 ): Promise<GetIdaeDetailResult> => {
   try {
     const response = await axios.get(
-      `http://localhost:8080/api/launch/get/detail`,
+      `${serverRoute}/api/launch/get/detail`,
       {
         params: { ideaId },
       }
@@ -94,7 +95,7 @@ export const createIdea = async (
   form: CreateIdeaForm
 ): Promise<CreateIdeaResult> => {
   try {
-    const response = await axios.post('http://localhost:8080/api/launch/create/idea', form);
+    const response = await axios.post(`${serverRoute}/api/launch/create/idea`, form);
     return { success: true, ideaId: response.data.ideaId };
   } catch (error: unknown) {
     if (axios.isAxiosError(error) && error.response) {
@@ -112,7 +113,7 @@ export const createDetailedIdea = async (
     form: CreateDetailedIdeaForm
   ): Promise<{ success: boolean;reason?: string }> => {
     try {
-      const response = await axios.post('http://localhost:8080/api/launch/create/detailed/idea', form);
+      const response = await axios.post(`${serverRoute}/api/launch/create/detailed/idea`, form);
   
       return { success: response.data.isCreated };
     } catch (error: unknown) {
@@ -129,7 +130,7 @@ export const deleteSpecificIdea = async (
   ): Promise<DeletedIdeaResult> => {
     try {
       const response = await axios.delete(
-        `http://localhost:8080/api/launch/delete/specific/idea`,
+        `${serverRoute}/api/launch/delete/specific/idea`,
         {
           params: { ideaId },
         }

@@ -1,4 +1,5 @@
 import { StartupIdeaResult, StartupIdeaErrorReason, StartupIdeaRaw } from '@/constants/Form';
+import { serverRoute } from '@/constants/Route';
 import axios from 'axios';
 
 export const fetchGeneratedIdeaWithAnswers = async (
@@ -6,7 +7,7 @@ export const fetchGeneratedIdeaWithAnswers = async (
   ): Promise<{ success: true; idea: StartupIdeaResult } | { success: false; reason: StartupIdeaErrorReason }> => {
     try {
       const response = await axios.post<{ idea: StartupIdeaRaw }>(
-        'http://localhost:8080/api/launch/generate-idea-with-answers',
+        `${serverRoute}/api/launch/generate-idea-with-answers`,
         { answers, previousDescriptions }
       );
   
@@ -43,7 +44,7 @@ export const fetchGeneratedIdeaWitIdeaNAnswers = async (
 ): Promise<{ success: true; idea: StartupIdeaResult } | { success: false; reason: StartupIdeaErrorReason }> => {
   try {
     const response = await axios.post<{ idea: StartupIdeaRaw }>(
-      'http://localhost:8080/api/launch/generate-idea-with-answers-n-base-idea',
+      `${serverRoute}/api/launch/generate-idea-with-answers-n-base-idea`,
       { answers, baseIdea }
     );
 
@@ -80,7 +81,7 @@ export const fetchGeneratedDetailedIdea = async (
 ): Promise<{ success: true; idea: StartupIdeaResult } | { success: false; reason: StartupIdeaErrorReason }> => {
   try {
     const response = await axios.post<{ detailedIdea: StartupIdeaRaw }>(
-      'http://localhost:8080/api/launch/generate-detailed-idea',
+      `${serverRoute}/api/launch/generate-detailed-idea`,
       { idea }
     );
 

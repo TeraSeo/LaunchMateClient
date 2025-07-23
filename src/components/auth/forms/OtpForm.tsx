@@ -48,7 +48,7 @@ const OtpForm: React.FC<ValidationFormProps> = ({ email }) => {
 
     if (result.success) {
       const expires = new Date();
-      expires.setDate(expires.getDate() + 3); // Token valid for 3 days
+      expires.setDate(expires.getDate() + 3);
 
       document.cookie = `token=${result.token}; path=/; expires=${expires.toUTCString()}; secure; samesite=strict`;
 
@@ -56,7 +56,7 @@ const OtpForm: React.FC<ValidationFormProps> = ({ email }) => {
 
       setTimeout(() => {
         location.reload();
-      }, 1000);
+      }, 3000);
     } else {
       setError('Invalid OTP. Please try again.');
     }

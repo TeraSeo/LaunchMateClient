@@ -28,7 +28,6 @@ const IdeaDeleteButton: React.FC<IdeaDeleteButtonProps> = ({ ideaId }) => {
         try {
             const response = await deleteSpecificIdea(ideaId);
             if (response.success) {
-                // Success animation delay before reload
                 setTimeout(() => {
                     window.location.reload();
                 }, 800);
