@@ -1,7 +1,3 @@
-
-https://github.com/user-attachments/assets/13a3ef4c-87d0-4288-bea1-672d3eeb137e
-
-https://github.com/user-attachments/assets/eddfb350-e4d4-493c-97f2-1fca1be7babf
 # 🚀 LaunchMate
 
 AI-powered startup idea and business plan generator designed for aspiring entrepreneurs.  
@@ -66,7 +62,7 @@ From generating a business idea to crafting a complete business plan, users can 
 <details>
   <summary>📷 View Screenshot</summary>
   
-  <img width="1512" alt="Step 1" src="https://github.com/user-attachments/assets/YOUR_IMAGE_ID_step1" />
+  https://github.com/user-attachments/assets/eddfb350-e4d4-493c-97f2-1fca1be7babf
 </details>
 
 ---
@@ -94,7 +90,7 @@ From generating a business idea to crafting a complete business plan, users can 
 <details>
   <summary>📷 View Screenshot</summary>
 
-  Uploading Screen Recording 2025-07-27 at 12.45.03 AM.mov…
+  [Uploading Screen Recording 2025-07-27 at 12.45.03 AM.mov…](https://github.com/user-attachments/assets/13a3ef4c-87d0-4288-bea1-672d3eeb137e)
 </details>
 
 ---
