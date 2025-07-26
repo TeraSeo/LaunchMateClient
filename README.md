@@ -5,12 +5,18 @@ With just a few taps, users can generate personalized startup ideas, detailed bu
 
 ---
 
+## Server Github Link
+[https://github.com/TeraSeo/HojuLog-Server-Public](https://github.com/TeraSeo/HojuLog-Server-Public)
+
+## 🔗 Live Site  
+[https://launch-mate-client.vercel.app](https://launch-mate-client.vercel.app)
+
+---
+
 ## 🔍 Overview
 
 **LaunchMate** streamlines the early-stage startup ideation process by combining interactive inputs and OpenAI GPT integration.  
 From generating a business idea to crafting a complete business plan, users can access professional content with ease.
-
-🔗 **Live Demo:** [https://launch-mate-client.vercel.app](https://launch-mate-client.vercel.app)
 
 ---
 
