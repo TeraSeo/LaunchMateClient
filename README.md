@@ -106,17 +106,6 @@ From generating a business idea to crafting a complete business plan, users can 
 ---
 
 ## 📌 Future Improvements (Roadmap)
-- [ ] Team collaboration and shared idea boards  
 - [ ] Template customization for PDF downloads  
 - [ ] User analytics and trend dashboards  
 - [ ] Stripe integration for subscription management
-
----
-
-## 👤 Author
-
-**Taejun Seo**  
-📧 [Portfolio](https://github.com/TeraSeo)  
-📍 Sydney, Australia
-
----
