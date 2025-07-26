@@ -73,7 +73,7 @@ From generating a business idea to crafting a complete business plan, users can 
 <details>
   <summary>📷 View Screenshot</summary>
 
-  Uploading Screen Recording 2025-07-27 at 12.42.19 AM.mov…
+  <img width="1512" height="756" alt="Screenshot 2025-07-27 at 12 39 41 AM" src="https://github.com/user-attachments/assets/d03b6b0c-0e05-4cdf-be91-7f9fe684b46b" />
 </details>
 
 ---
@@ -120,5 +120,3 @@ From generating a business idea to crafting a complete business plan, users can 
 📍 Sydney, Australia
 
 ---
-<img width="1512" height="756" alt="Screenshot 2025-07-27 at 12 39 41 AM" src="https://github.com/user-attachments/assets/d03b6b0c-0e05-4cdf-be91-7f9fe684b46b" />
-
